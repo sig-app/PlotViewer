@@ -54,7 +54,11 @@
              </sizepolicy>
             </property>
             <property name="text">
-             <string>back</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/fig/back_arrow.png</normaloff>:/fig/back_arrow.png</iconset>
             </property>
            </widget>
           </item>
@@ -77,7 +81,11 @@
              </sizepolicy>
             </property>
             <property name="text">
-             <string>forward</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="icons.qrc">
+              <normaloff>:/fig/forward_arrow.png</normaloff>:/fig/forward_arrow.png</iconset>
             </property>
            </widget>
           </item>
@@ -90,6 +98,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
