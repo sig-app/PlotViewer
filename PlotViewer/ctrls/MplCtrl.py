@@ -1,5 +1,3 @@
-##from PyQt4.uic import loadUiType
-##import os
 from PyQt4 import QtGui
 from ui_mpl_widget import Ui_Form
 
@@ -8,32 +6,32 @@ from matplotlib.backends.backend_qt4agg import (
     FigureCanvasQTAgg as FigureCanvas,
     NavigationToolbar2QT as NavigationToolbar)
 
-##view_path = os.path.join('views','MplWidget.ui')
-##Ui_Widget, QWidget = loadUiType(view_path)
-        
-##class Mpl(QWidget, Ui_Widget):
 class Mpl(QtGui.QWidget, Ui_Form):
     def __init__(self, fig_dict, name_list):
         super(Mpl, self).__init__()
         self.setupUi(self)
         self.fig_dict = fig_dict
         self.name_list = name_list
+        self.index = 0
 
-##        self.mplfigs.itemClicked.connect(self.changefig)
+        self.btnBack.clicked.connect(self.back)
+        self.btnForward.clicked.connect(self.forward)
+
+        self.comboBoxSelect.addItems(self.name_list)
+        self.comboBoxSelect.setCurrentIndex(self.index)
+        self.comboBoxSelect.activated.connect(self.select)
+        
         if self.fig_dict and self.name_list:
-            fig = self.fig_dict[self.name_list[0]]
+            fig = self.fig_dict[self.name_list[self.index]]
         else:
             fig = Figure()
         self.addmpl(fig)
 
-    def changefig(self, item):
-        text = item.text()
+    def changefig(self,):
+        self.comboBoxSelect.setCurrentIndex(self.index)
+        fig = self.fig_dict[self.name_list[self.index]]
         self.rmmpl()
-        self.addmpl(self.fig_dict[text])
-
-##    def addfig(self, name, fig):
-##        self.fig_dict[name] = fig
-##        self.mplfigs.addItem(name)
+        self.addmpl(fig)
 
     def addmpl(self, fig):
         self.canvas = FigureCanvas(fig)
@@ -49,4 +47,14 @@ class Mpl(QtGui.QWidget, Ui_Form):
         self.ltToolbox.removeWidget(self.toolbar)
         self.toolbar.close()
 
+    def back(self):
+        self.index = self.index-1 if self.index!=0 else len(self.name_list)-1
+        self.changefig()
 
+    def forward(self):
+        self.index = self.index+1 if self.index!=len(self.name_list)-1 else 0
+        self.changefig()
+
+    def select(self):
+        self.index = self.comboBoxSelect.currentIndex()
+        self.changefig()

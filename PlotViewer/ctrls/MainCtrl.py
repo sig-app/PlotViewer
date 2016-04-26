@@ -1,30 +1,7 @@
-
-import os
-genpath = os.path.join('views','gen')
-import sys
-sys.path.append(genpath)
-
-
 from PyQt4 import QtGui
-##from PyQt4.uic import loadUiType
-##import os
 from ui_main_view import Ui_MainWindow
-
-##from matplotlib.figure import Figure
-##from matplotlib.backends.backend_qt4agg import (
-##    FigureCanvasQTAgg as FigureCanvas,
-##    NavigationToolbar2QT as NavigationToolbar)
-
 from ctrls.MplCtrl import Mpl
 
-##view_path = os.path.join('views','MainView.ui')
-##Ui_MainWindow, QMainWindow = loadUiType(view_path)
-
-def main():
-    app = QtGui.QApplication([])
-    return Main(app)
-
-##class Main(QMainWindow, Ui_MainWindow):
 class Main(QtGui.QMainWindow, Ui_MainWindow):
     def __init__(self, app):
         self.app = app

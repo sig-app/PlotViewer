@@ -1,8 +1,12 @@
-##import sys
-##from PyQt4 import QtGui
+import os,sys,inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+path = os.path.join(parentdir,'PlotViewer')
+sys.path.insert(0,path)
+
 import numpy as np
 from matplotlib.figure import Figure
-from ctrls.MainCtrl import main
+from PlotViewer import plot_viwer
 
 fig1 = Figure()
 ax1f1 = fig1.add_subplot(111)
@@ -19,11 +23,8 @@ ax1f3 = fig3.add_subplot(111)
 ax1f3.pcolormesh(np.random.rand(20,20))
 
 
-
-##app = QtGui.QApplication(sys.argv)
-M = main()
+M = plot_viwer()
 M.addfig('One plot', fig1)
 M.addfig('Two plots', fig2)
 M.addfig('Pcolormesh', fig3)
 M.show()
-##sys.exit(app.exec_())
