@@ -35,6 +35,7 @@ class Mpl(QtGui.QWidget, Ui_Form):
 
     def addmpl(self, fig):
         self.canvas = FigureCanvas(fig)
+        # self.canvas.setSizePolicy(QtGui.QSizePolicy.Expanding,QtGui.QSizePolicy.Expanding)
         self.ltMPL.addWidget(self.canvas)
         self.canvas.draw()
         self.toolbar = NavigationToolbar(self.canvas, 

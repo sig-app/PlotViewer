@@ -1,8 +1,9 @@
 MplCtrl.py
  - fix toolbar so reset, back and forward works for figures after changing back and forth between figures
+ - look into memori usage! (increased when changing figures)
 
 MainCtrl.py
- - add grid funtionality to show multiple plots at the same time
+ - adjust size of plots to fit window and number of plots
  - investigate if figure list should be copied so changes in one grid doesn't affect other grids
  - add save to file menu (saves the figure list and names)
  - add load to file menu

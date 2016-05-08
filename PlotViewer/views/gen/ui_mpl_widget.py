@@ -36,6 +36,8 @@ class Ui_Form(object):
         self.mplwindow.setSizePolicy(sizePolicy)
         self.mplwindow.setObjectName(_fromUtf8("mplwindow"))
         self.mplvl = QtGui.QVBoxLayout(self.mplwindow)
+        self.mplvl.setMargin(2)
+        self.mplvl.setSpacing(2)
         self.mplvl.setObjectName(_fromUtf8("mplvl"))
         self.ltMPL = QtGui.QVBoxLayout()
         self.ltMPL.setSizeConstraint(QtGui.QLayout.SetDefaultConstraint)
